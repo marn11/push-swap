@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/03/31 00:16:15 by mbenchel         ###   ########.fr       */
+/*   Created: 2024/03/30 02:18:05 by mbenchel          #+#    #+#             */
+/*   Updated: 2024/03/31 02:28:24 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int main(int ac, char **av)
-{
-	t_stack *a;
-	t_stack *b;
+# include <unistd.h>
+# include <stdlib.h>
 
-	a = NULL;
-	b = NULL;
+char	**ft_split(const char *s, char c);
+long	ft_atol(const char *nptr);
+void	ft_putstr_fd(char *s, int fd);
+int		ft_strlen(char *s);
 
-	if (ac == 1 || (ac == 2 && (av[1][0] == '\0'
-		|| (av[1][0] >= 9 && av[1][0] <= 13))))
-			return (write(2, "error\n", 6), exit(1), 1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	init_stack(&a, av);
-}
+#endif

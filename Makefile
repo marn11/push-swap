@@ -6,7 +6,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
-SRCS = src/main.c \
+SRCS =	src/main.c \
+		src/stack.c \
+		utils/utils.c \
+		utils/utils2.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -24,4 +27,6 @@ clean:
 fclean: 	clean
 			$(RM) $(NAME)
 
+re: 		fclean all
 
+.PHONY:  clean fclean re all
