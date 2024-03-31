@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/03/31 02:21:07 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/03/31 15:06:48 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	init_stack(t_stack **a, char **av)
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			exit(1);
 		//check if repeated numbers
-		add_node(a, (int)nbr); 
+		add_node(a, (int)nbr);
 		i++;
 	}
 

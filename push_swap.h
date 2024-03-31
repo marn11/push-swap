@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 02:37:20 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/03/31 02:29:45 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/03/31 15:10:54 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,19 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
+t_stack	*last_node(t_stack *head);
 void	init_stack(t_stack **a, char **av);
 void	add_node(t_stack **stack, int data);
-t_stack	*last_node(t_stack *head);
-
+void	ss(t_stack **a, t_stack **b, int i);
+void	pa(t_stack **a, t_stack **b, int i);
+void	rr(t_stack **a, t_stack **b, int i);
+void	pb(t_stack **a, t_stack **b, int i);
+void	rrr(t_stack **a, t_stack **b, int i);
+void	sa(t_stack **a, int i);
+void	sb(t_stack **b, int i);
+void	ra(t_stack **a, int i);
+void	rb(t_stack **b, int i);
+void	rra(t_stack **a, int i);
+void	rrb(t_stack **b, int i);
 
 #endif

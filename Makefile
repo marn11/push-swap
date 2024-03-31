@@ -8,6 +8,9 @@ RM = rm -rf
 
 SRCS =	src/main.c \
 		src/stack.c \
+		src/swap_push.c \
+		src/rotate.c \
+		src/utils.c \
 		utils/utils.c \
 		utils/utils2.c \
 
