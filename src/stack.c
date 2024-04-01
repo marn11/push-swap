@@ -6,11 +6,43 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/03/31 15:06:48 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/01 01:51:47 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int check_repeated(t_stack *a , int nbr)
+{
+	if (!a)
+		return (0);
+	while (a)
+	{
+		if (a->data == nbr)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
+int	check_error(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		while (s[i] == ' ')
+			i++;
+		if (s[i] == '-' || s[i] == '+')
+			i++;
+		while (ft_isdigit(s[i]))
+			i++;
+		if (s[i] && s[i] != ' ')
+			return (write(2, "Error\n", 6), 1);
+	}
+	return(0);
+}
 
 t_stack	*last_node(t_stack *head)
 {
@@ -50,19 +82,35 @@ void	init_stack(t_stack **a, char **av)
 {
 	long	nbr;
 	int		i;
+	char	*join;
+	char	**res;
 
-	i = 0;
+	i = 1;
+	join = NULL;
+	if (!av[0])
+	{
+		write(2, "error\n", 6);
+		exit(1);
+	}
 	while (av[i])
 	{
-		// if (check_error(av[i]) == 0)
-			// return (write(2, "error\n", 6), exit(1), 1);
-		nbr = ft_atol(av[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			exit(1);
-		//check if repeated numbers
-		add_node(a, (int)nbr);
-		i++;
+		check_error(av[i]);
+		join = ft_strjoin(av[i], " ");
+		join = ft_strjoin(join, av[i++]);
 	}
-
+	res = ft_split(join, ' ');
+	i = 0;
+	nbr = ft_atol(res[i]);
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		exit(1);
+	if (check_repeated(*a, (int)nbr))
+	{
+		write(2, "error\n", 6);
+		exit(1);
+	}
+	add_node(a, (int)nbr);
+	printf("%d\n", (*a)->data); // tooozzzzzz
+	i++;
 }
+
 

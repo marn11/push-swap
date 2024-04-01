@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 02:37:20 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/03/31 15:10:54 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/03/31 17:03:30 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	ra(t_stack **a, int i);
 void	rb(t_stack **b, int i);
 void	rra(t_stack **a, int i);
 void	rrb(t_stack **b, int i);
+int		check_error(char *s);
 
 #endif

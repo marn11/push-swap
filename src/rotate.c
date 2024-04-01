@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 13:37:43 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/03/31 15:17:46 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/03/31 15:17:50 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,3 @@ void	rrb(t_stack **b, int i)
 	if (i)
 		ft_putstr_fd("rrb\n", 1);
 }
-

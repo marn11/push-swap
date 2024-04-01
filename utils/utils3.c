@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/01 00:57:47 by mbenchel         ###   ########.fr       */
+/*   Created: 2024/04/01 01:01:43 by mbenchel          #+#    #+#             */
+/*   Updated: 2024/04/01 01:02:12 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "utils.h"
 
-int main(int ac, char **av)
+char	*ft_strdup(const char *s)
 {
-	t_stack *a;
-	t_stack *b;
+	size_t	l;
+	size_t	j;
+	char	*dup;
 
-	a = NULL;
-	b = NULL;
-
-	if (ac == 1 || (ac == 2 && (av[1][0] == '\0'
-		|| (av[1][0] >= 9 && av[1][0] <= 13))))
-			return (write(2, "Error\n", 6), exit(1), 1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	init_stack(&a, av);
+	j = 0;
+	l = ft_strlen(s);
+	dup = malloc(sizeof(char) * (l + 1));
+	if (dup == NULL)
+		return (NULL);
+	while (j < l)
+	{
+		dup[j] = s[j];
+		j++;
+	}
+	dup[l] = '\0';
+	return (dup);
 }
-

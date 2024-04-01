@@ -13,6 +13,7 @@ SRCS =	src/main.c \
 		src/utils.c \
 		utils/utils.c \
 		utils/utils2.c \
+		utils/utils3.c \
 
 OBJS = $(SRCS:.c=.o)
 
