@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 01:01:43 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/01 01:02:12 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/02 03:33:09 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,16 @@ char	*ft_strdup(const char *s)
 	}
 	dup[l] = '\0';
 	return (dup);
+}
+
+int	ft_2dlen(char **s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+		i++;
+	return (i);
 }

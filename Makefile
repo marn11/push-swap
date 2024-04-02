@@ -11,6 +11,7 @@ SRCS =	src/main.c \
 		src/swap_push.c \
 		src/rotate.c \
 		src/utils.c \
+		src/sort3.c \
 		utils/utils.c \
 		utils/utils2.c \
 		utils/utils3.c \

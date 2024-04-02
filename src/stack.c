@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/01 01:51:47 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/02 08:29:31 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,39 +78,58 @@ void	add_node(t_stack **stack, int data)
 	}
 }
 
-void	init_stack(t_stack **a, char **av)
+void	init_stack(t_stack **a, char **av, int ac)
 {
-	long	nbr;
 	int		i;
 	char	*join;
 	char	**res;
+	long	*data;
 
-	i = 1;
-	join = NULL;
 	if (!av[0])
 	{
-		write(2, "error\n", 6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
+	if (ac == 2)
+		i = 0;
+	else
+		i = 1;
+	join = NULL;
 	while (av[i])
 	{
 		check_error(av[i]);
-		join = ft_strjoin(av[i], " ");
-		join = ft_strjoin(join, av[i++]);
+		if (join)
+			join = ft_strjoin(join, " ");
+		else
+			join = ft_strdup("");
+		join = ft_strjoin(join, av[i]);
+		i++;
 	}
 	res = ft_split(join, ' ');
-	i = 0;
-	nbr = ft_atol(res[i]);
-	if (nbr > INT_MAX || nbr < INT_MIN)
+	data = malloc(sizeof(long) * ft_2dlen(res));
+	if (!data)
 		exit(1);
-	if (check_repeated(*a, (int)nbr))
+	i = 0;
+	while (res[i])
+	{
+		data[i]= ft_atol(res[i]);
+	if (data[i] > INT_MAX || data[i] < INT_MIN)
+		exit(1);
+	if (check_repeated(*a, (int)data[i]))
 	{
 		write(2, "error\n", 6);
 		exit(1);
 	}
-	add_node(a, (int)nbr);
-	printf("%d\n", (*a)->data); // tooozzzzzz
+	add_node(a, (int)data[i]);
 	i++;
+	}
+	i = 0;
+	// free(data);
+	// free(join);
+	// i = 0;
+	// while (res[i])
+	// 	free(res[i++]);
+	// free(res);
+	// free(av);
 }
-
 

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 02:37:20 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/03/31 17:03:30 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/02 09:22:43 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@
 
 typedef struct s_stack
 {
+	int				id;
 	int				data;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
 
 t_stack	*last_node(t_stack *head);
-void	init_stack(t_stack **a, char **av);
+void	init_stack(t_stack **a, char **av, int ac);
 void	add_node(t_stack **stack, int data);
 void	ss(t_stack **a, t_stack **b, int i);
 void	pa(t_stack **a, t_stack **b, int i);
