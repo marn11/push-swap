@@ -6,13 +6,13 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:18:26 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/02 09:22:09 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/03 00:36:23 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_sort_3_nums(t_stack **a)
-{
-	
-}
+// void ft_sort_3_nums(t_stack **a)
+// {
+
+// }

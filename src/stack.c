@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/02 08:29:31 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/02 22:48:14 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	init_stack(t_stack **a, char **av, int ac)
 	add_node(a, (int)data[i]);
 	i++;
 	}
-	i = 0;
+	// i = 0;
 	// free(data);
 	// free(join);
 	// i = 0;
