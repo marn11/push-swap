@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 02:37:20 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/03 00:34:55 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/03 02:16:01 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 typedef struct s_stack
 {
-	int				id;
 	int				data;
 	int				index;
 	struct s_stack	*next;
@@ -44,4 +43,6 @@ void	rra(t_stack **a, int i);
 void	rrb(t_stack **b, int i);
 int		check_error(char *s);
 void	index_stack(t_stack **a);
+void	ft_sort3(t_stack **a);
+int		ft_lstsize(t_stack *lst);
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/03 00:50:07 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/03 02:28:31 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,10 @@ int main(int ac, char **av)
 		// free(av);
 	}
 	init_stack(&a, av, ac);
-	while (a)
-	{
-		printf("data: %d\n", a->data);
-		a = a->next;
-	}
 	index_stack(&a);
-	// t_stack *tmp = a;
-	// // while (tmp)
-	// // {
-	// // 	printf("data: %d, index: %d\n", tmp->data, tmp->index);
-	// // 	tmp = tmp->next;
-	// // }
+	if (ft_lstsize(a) == 3)
+	{
+		printf("size of a is %d\n", ft_lstsize(a));
+		ft_sort3(&a);
+	}
 }
-
