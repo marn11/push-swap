@@ -6,41 +6,60 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:18:26 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/03 03:07:21 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/03 18:34:04 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 
-void	ft_sort3(t_stack **a)
+int	ft_sort3(t_stack **a)
 {
-	t_stack *tmp;
+	int		x;
+	int		y;
+
+	x = (*a)->next->data;
+	y = (*a)->next->next->data;
+	if ((*a)->data > x && x > y)
+		return (ra(a,1), sa(a,1), 1);
+	else if ((*a)->data < x && (*a)->data < y && x < y)
+		return (sa(a,1), sa(a,1), 1);
+	else if ((*a)->data > x && (*a)->data < y)
+		return (sa(a,1), 1);
+	else if ((*a)->data > x && x < y)
+		return (ra(a,1), 1);
+	else if ((*a)->data < x && (*a)->data > y)
+		return (rra(a,1), 1);
+	else if ((*a)->data < x && (*a)->data < y)
+		return(rra(a,1), sa(a,1), 1);
+	return (0);
+}
+
+void ft_sort2(t_stack **a)
+{
+	t_stack	*tmp;
 
 	tmp = *a;
-	if (tmp->index == 0)
+	if (tmp->index == 1)
+		sa(a, 1);
+}
+
+void ft_sort5(t_stack **a, t_stack **b)
+{
+	int	i;
+
+	i = 0;
+	while (ft_lstsize(*a) > 3)
 	{
-		if (tmp->next->index == 2)
+		if (i == (*a)->index)
 		{
-			rra(a, 1);
-			sa(a, 1);
-		}
-	}
-	else if (tmp->index == 1)
-	{
-		if (tmp->next->index == 0)
-			sa(a, 1);
-		else
-			rra(a, 1);
-	}
-	else
-	{
-		if (tmp->next->index == 1)
-		{
-			ra(a, 1);
-			sa(a, 1);
+			pb(a, b, 1);
+			i++;
 		}
 		else
-			ra(a, 1);
+			rra(a, 1);
 	}
+	ft_sort3(a);
+	pa(a, b, 1);
+	pa(a, b, 1);
 }
