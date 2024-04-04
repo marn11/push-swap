@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/04 09:54:08 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:16:29 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,23 @@ int main(int ac, char **av)
 		ft_sort2(&a);
 	else if (ft_lstsize(a) == 5)
 		ft_sort5(&a, &b);
-		// t_stack *tmp = b;
-		// while (tmp)
-		// {
-		// 	printf("%d\n", tmp->data);
-		// 	tmp = tmp->next;
-		// }
-		// printf("------------\n");
-		// tmp = a;
-		// while (tmp)
-		// {
-		// 	printf("%d\n", tmp->data);
-		// 	tmp = tmp->next;
-		// }
+	else if (ft_lstsize(a) == 4)
+		ft_sort5(&a, &b);
+	else if (ft_lstsize(a) > 5)
+		ft_sort(&a, &b);
+		t_stack *tmp = b;
+		while (tmp)
+		{
+			printf("STACK B ");
+			printf("%d\n", tmp->data);
+			tmp = tmp->next;
+		}
+		printf("------------\n");
+		tmp = a;
+		while (tmp)
+		{
+			printf("STACK A ");
+			printf("%d\n", tmp->data);
+			tmp = tmp->next;
+		}
 }
