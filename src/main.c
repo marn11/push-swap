@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/04 15:16:29 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:35:02 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int main(int ac, char **av)
 		while (tmp)
 		{
 			printf("STACK B ");
-			printf("%d\n", tmp->data);
+			printf("%d", tmp->data);
+			printf("index %d\n", tmp->index);
 			tmp = tmp->next;
 		}
 		printf("------------\n");
@@ -54,7 +55,8 @@ int main(int ac, char **av)
 		while (tmp)
 		{
 			printf("STACK A ");
-			printf("%d\n", tmp->data);
+			printf("%d", tmp->data);
+			printf("index %d\n", tmp->index);
 			tmp = tmp->next;
 		}
 }
