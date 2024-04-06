@@ -6,29 +6,42 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/04 15:15:20 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/06 07:27:18 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	divide_stack(t_stack **a, t_stack **b)
-{
-	int		i;
-	int		size_a;
-	int		chunk_size;
-
-	size_a = ft_lstsize(*a);
-	chunk_size = size_a / 3;
-	i = 0;
-	while (i < chunk_size && *a)
-	{
-		pb(a, b, 1);
-		i++;
-	}
-}
-
 void	ft_sort(t_stack **a, t_stack **b)
 {
-	divide_stack(a, b);
+	int	lastp1;
+	int	p1;
+	int	p2;
+
+	lastp1 = -1;
+	p1 = ft_lstsize(*a) / 3;
+	p2 = ft_lstsize(*a) / 6;
+
+	while (ft_lstsize(*a) > 3)
+	{
+		if ((*a)->index < p1)
+			pb(a, b, 1);
+		else
+		{
+			ra(a, 1);
+			break ;
+			printf("size : %d\n", ft_lstsize(*a));
+			if (ft_lstsize(*a) == 3)
+				break ;
+		}
+		if (ft_lstsize(*b) > 1 && ((*b)->index >= lastp1 && (*b)->index >= p2))
+			rb(b, 1);
+		if (ft_lstsize(*b) == p1)
+		{
+			lastp1 = p1;
+			p1 = ft_lstsize(*a) / 3;
+			p2 = ft_lstsize(*a) / 6 + lastp1;
+		}
+	}
+	ft_sort3(a);
 }

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 02:37:20 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/04 15:15:27 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/06 02:46:04 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int		ft_lstsize(t_stack *lst);
 void	ft_sort5(t_stack **a, t_stack **b);
 void	ft_sort2(t_stack **a);
 void	ft_sort(t_stack **a, t_stack **b);
-void	divide_stack(t_stack **a, t_stack **b);
 
 #endif
