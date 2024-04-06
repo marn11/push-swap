@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/06 07:37:15 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:34:03 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_sort(t_stack **a, t_stack **b)
 	lastp1 = -1;
 	p1 = ft_lstsize(*a) / 3;
 	p2 = ft_lstsize(*a) / 6;
-
 	while (ft_lstsize(*a) > 3)
 	{
 		if ((*a)->index < p1)
@@ -37,7 +36,7 @@ void	ft_sort(t_stack **a, t_stack **b)
 		if (ft_lstsize(*b) == p1)
 		{
 			lastp1 = p1;
-			p1 = ft_lstsize(*a) / 3;
+			p1 = ft_lstsize(*a) / 3 + p1;
 			p2 = ft_lstsize(*a) / 6 + lastp1;
 		}
 	}
