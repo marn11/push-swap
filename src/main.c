@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/06 06:44:30 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:36:34 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(int ac, char **av)
 	else if (ft_lstsize(a) == 4)
 		ft_sort5(&a, &b);
 	else if (ft_lstsize(a) > 5)
-		ft_sort(&a, &b);
+		ft_sort_p1(&a, &b);
 		t_stack *tmp = b;
 		while (tmp)
 		{

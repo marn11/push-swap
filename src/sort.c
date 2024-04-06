@@ -6,13 +6,13 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/06 14:34:03 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:16:36 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_sort(t_stack **a, t_stack **b)
+void	ft_sort_p1(t_stack **a, t_stack **b)
 {
 	int	lastp1;
 	int	p1;
@@ -41,4 +41,43 @@ void	ft_sort(t_stack **a, t_stack **b)
 		}
 	}
 	ft_sort3(a);
+	ft_sort_p2(a, b);
+}
+void	get_last_element_index(t_stack **a)
+{
+	t_stack *tmp;
+	int		last;
+
+	tmp = *a;
+	last = 0;
+	while (tmp)
+	{
+		if (tmp->index > last)
+			last = tmp->index;
+		tmp = tmp->next;
+	}
+	return (last);
+}
+void	get_biggest_index(t_stack **a)
+{
+	t_stack *tmp;
+	int		biggest;
+
+	tmp = *a;
+	biggest = 0;
+	while (tmp)
+	{
+		if (tmp->index > biggest)
+			biggest = tmp->index;
+		tmp = tmp->next;
+	}
+	return (biggest);
+}
+
+void	ft_sort_p2(t_stack **a, t_stack **b)
+{
+	int	biggest_index;
+	int	bottoma_value;
+
+	bottoma_value = get_;
 }
