@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/06 15:16:36 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/07 22:29:47 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,10 @@ void	ft_sort_p1(t_stack **a, t_stack **b)
 	while (ft_lstsize(*a) > 3)
 	{
 		if ((*a)->index < p1)
-		{
 			pb(a, b, 1);
-			index_stack(b);
-			index_stack(a);
-		}
 		else
 			ra(a, 1);
-		if (ft_lstsize(*b) > 1 && ((*b)->index >= lastp1 && (*b)->index >= p2))
+		if ((*b) && ft_lstsize(*b) > 1 && ((*b)->index >= lastp1 && (*b)->index <= p2))
 			rb(b, 1);
 		if (ft_lstsize(*b) == p1)
 		{
@@ -43,7 +39,8 @@ void	ft_sort_p1(t_stack **a, t_stack **b)
 	ft_sort3(a);
 	ft_sort_p2(a, b);
 }
-void	get_last_element_index(t_stack **a)
+
+int	bottom_index(t_stack **a)
 {
 	t_stack *tmp;
 	int		last;
@@ -52,32 +49,32 @@ void	get_last_element_index(t_stack **a)
 	last = 0;
 	while (tmp)
 	{
-		if (tmp->index > last)
-			last = tmp->index;
+		last = tmp->index;
 		tmp = tmp->next;
 	}
 	return (last);
-}
-void	get_biggest_index(t_stack **a)
-{
-	t_stack *tmp;
-	int		biggest;
-
-	tmp = *a;
-	biggest = 0;
-	while (tmp)
-	{
-		if (tmp->index > biggest)
-			biggest = tmp->index;
-		tmp = tmp->next;
-	}
-	return (biggest);
 }
 
 void	ft_sort_p2(t_stack **a, t_stack **b)
 {
 	int	biggest_index;
-	int	bottoma_value;
 
-	bottoma_value = get_;
+	biggest_index = bottom_index(a);
+	while (*b)
+	{
+		while ((*b) && (*b)->index != (*a)->index - 1)
+		{
+			if (bottom_index(a) == biggest_index || bottom_index(a) < (*b)->index)
+			{
+				pa(a, b, 1);
+				ra(a, 1);
+			}
+			else
+				rb(b, 1);
+		}
+		while ((*b) && (*b)->index == (*a)->index - 1)
+			pa(a, b, 1);
+		while (bottom_index(a) == (*a)->index - 1)
+			rra(a, 1);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 02:37:20 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/06 14:36:28 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/07 12:25:06 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void	ft_sort5(t_stack **a, t_stack **b);
 void	ft_sort2(t_stack **a);
 void	ft_sort_p1(t_stack **a, t_stack **b);
 void	ft_sort_p2(t_stack **a, t_stack **b);
+int		bottom_index(t_stack **a);
 
 #endif
