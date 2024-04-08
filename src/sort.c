@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/07 22:29:47 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:00:13 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,56 @@ int	bottom_index(t_stack **a)
 	return (last);
 }
 
+int	count_rotations_to_bottom(t_stack **b, int index)
+{
+	t_stack	*tmp;
+	int		rotations;
+
+	tmp = *b;
+	rotations = 0;
+	if (!tmp)
+		return (0);
+	while (tmp && tmp->index != index)
+	{
+		tmp = tmp->next;
+		rotations++;
+	}
+	return (rotations);
+}
+
+int	count_rotations_to_top(t_stack **b, int index)
+{
+	t_stack	*tmp;
+	int		rotations;
+
+	tmp = *b;
+	rotations = 0;
+	if (!tmp)
+		return (0);
+	while (tmp && tmp->index != index)
+	{
+		tmp = tmp->prev;
+		rotations++;
+	}
+	return (rotations);
+}
+
+void rb_vs_rrb(t_stack **b, int index, t_stack **a)
+{
+	int		fw_rotations;
+	int		bw_rotations;
+
+	fw_rotations = count_rotations_to_bottom(b, index); // 5
+	bw_rotations = count_rotations_to_top(b, index); // 0
+	if (fw_rotations <= bw_rotations)
+		rb(b, 1);
+	else
+	{
+		rrb(b, 1);
+		pa(a, b, 1);
+	}
+}
+
 void	ft_sort_p2(t_stack **a, t_stack **b)
 {
 	int	biggest_index;
@@ -70,7 +120,7 @@ void	ft_sort_p2(t_stack **a, t_stack **b)
 				ra(a, 1);
 			}
 			else
-				rb(b, 1);
+				rb_vs_rrb(b, (*a)->index - 1, a);
 		}
 		while ((*b) && (*b)->index == (*a)->index - 1)
 			pa(a, b, 1);
