@@ -114,34 +114,6 @@ int	count_rotations_to_top(t_stack **b, int index)
 	return (rotations);
 }
 
-int gettargetindex(t_stack **a, int target)
-{
-	t_stack *temp;
-	int i;
-
-	temp = *a;
-	i = 0;
-	if (!temp)
-		return (0);
-	while (temp && temp->index != target)
-	{
-		i++;
-		temp = temp->next;
-	}
-	return (i);
-}
-
-// void printstack(t_stack **a)
-// {
-// 	t_stack *tmp;
-
-// 	tmp = *a;
-// 	while (tmp)
-// 	{
-// 		printf("%d\n", tmp->index);
-// 		tmp = tmp->next;
-// 	}
-// }
 void rb_vs_rrb(t_stack **b, int index ,t_stack **a)
 {
 	int		fw_rotations;
@@ -149,62 +121,22 @@ void rb_vs_rrb(t_stack **b, int index ,t_stack **a)
 
 	(void)a;
 	does_it_exist(b, index);
-	// printf("-------------stacka----------------\n");
-	// printstack(a);
-	// printf("-------------stackb----------------\n");
-	// printstack(b);
 	fw_rotations = count_rotations_to_bottom(b, index);
 	bw_rotations = count_rotations_to_top(b, index);
-	// printf("index: %d\n", index);
-	// printf("fw_rotations: %d\n", fw_rotations);
-	// printf("bw_rotations: %d\n", bw_rotations);
-		if (fw_rotations <= bw_rotations)
-		{
-			// puts("RB WAS USED");	
+		if (fw_rotations <= bw_rotations)	
 			rb(b, 1);
-		}
 		else
-		{
-			// puts("RRB WAS USED");
 			rrb(b, 1);
-		}
-//here we can see that we get stuck in and infinite loop where we start doing rb and rrb indefinitely
-//this is because the index we are looking for is not in the stack
-//we need to add a condition to break the loop if the index is not found
-//we can do this by checking if the index is not found and if the index is not found we can break the loop
 }
 
 
 void	ft_sort_p2(t_stack **a, t_stack **b)
 {
 	int	biggest_index;
-	// int	bottom_a;
 
 	biggest_index = bottom_index(a);
 	while (*b)
 	{
-		// if (gettargetindex(b, (*a)->index - 1) >= ft_lstsize(*b) / 2)
-		// 	while ((*b) && (*b)->index != (*a)->index - 1)
-		// 	{
-		// 		if (bottom_index(a) == biggest_index || bottom_index(a) < (*b)->index)
-		// 		{
-		// 			pa(a, b, 1);
-		// 			ra(a, 1);
-		// 		}
-		// 		else
-		// 			rrb(b, 1);
-		// 	}
-		// else
-		// 	while ((*b) && (*b)->index != (*a)->index - 1)
-		// 	{
-		// 		if (bottom_index(a) == biggest_index || bottom_index(a) < (*b)->index)
-		// 		{
-		// 			pa(a, b, 1);
-		// 			ra(a, 1);
-		// 		}
-		// 		else
-		// 			rb(b, 1);
-		// 	}
 		while ((*b) && (*b)->index != (*a)->index - 1)
 		{
 			if (bottom_index(a) == biggest_index || bottom_index(a) < (*b)->index)

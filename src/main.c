@@ -42,11 +42,4 @@ int main(int ac, char **av)
 		ft_sort5(&a, &b);
 	else if (ft_lstsize(a) > 5)
 		ft_sort_p1(&a, &b);
-	// t_stack *tmp = a;
-	// printf("stack a----------------\n");
-	// while (tmp)
-	// {
-	// 	printf("%d\n", tmp->index);
-	// 	tmp = tmp->next;
-	// }
 }
