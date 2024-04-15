@@ -12,6 +12,18 @@
 
 #include "../push_swap.h"
 
+t_stack *ft_lstlast(t_stack **lst)
+{
+	t_stack *tmp;
+
+	if (!lst)
+		return (NULL);
+	tmp = *lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
+}
+
 void	ft_sort_p1(t_stack **a, t_stack **b)
 {
 	int	lastp1;
@@ -39,7 +51,20 @@ void	ft_sort_p1(t_stack **a, t_stack **b)
 	ft_sort3(a);
 	ft_sort_p2(a, b);
 }
+void does_it_exist(t_stack **b, int index)
+{
+	t_stack *tmp;
 
+	tmp = *b;
+	while (tmp)
+	{
+		if (tmp->index == index)
+			return ;
+		tmp = tmp->next;
+	}
+	printf("index %d does not exist in stack b\n", index);
+	exit(1);
+}
 int	bottom_index(t_stack **a)
 {
 	t_stack *tmp;
@@ -77,7 +102,7 @@ int	count_rotations_to_top(t_stack **b, int index)
 	t_stack	*tmp;
 	int		rotations;
 
-	tmp = *b;
+	tmp = ft_lstlast(b);
 	rotations = 0;
 	if (!tmp)
 		return (0);
@@ -106,32 +131,47 @@ int gettargetindex(t_stack **a, int target)
 	return (i);
 }
 
-void printstack(t_stack **a)
-{
-	t_stack *tmp;
+// void printstack(t_stack **a)
+// {
+// 	t_stack *tmp;
 
-	tmp = *a;
-	while (tmp)
-	{
-		printf("%d\n", tmp->index);
-		tmp = tmp->next;
-	}
-}
+// 	tmp = *a;
+// 	while (tmp)
+// 	{
+// 		printf("%d\n", tmp->index);
+// 		tmp = tmp->next;
+// 	}
+// }
 void rb_vs_rrb(t_stack **b, int index ,t_stack **a)
 {
 	int		fw_rotations;
 	int		bw_rotations;
 
-	printf("-------------stacka----------------\n");
-	printstack(a);
-	printf("-------------stackb----------------\n");
-	printstack(b);
+	(void)a;
+	does_it_exist(b, index);
+	// printf("-------------stacka----------------\n");
+	// printstack(a);
+	// printf("-------------stackb----------------\n");
+	// printstack(b);
 	fw_rotations = count_rotations_to_bottom(b, index);
 	bw_rotations = count_rotations_to_top(b, index);
+	// printf("index: %d\n", index);
+	// printf("fw_rotations: %d\n", fw_rotations);
+	// printf("bw_rotations: %d\n", bw_rotations);
 		if (fw_rotations <= bw_rotations)
+		{
+			// puts("RB WAS USED");	
 			rb(b, 1);
+		}
 		else
+		{
+			// puts("RRB WAS USED");
 			rrb(b, 1);
+		}
+//here we can see that we get stuck in and infinite loop where we start doing rb and rrb indefinitely
+//this is because the index we are looking for is not in the stack
+//we need to add a condition to break the loop if the index is not found
+//we can do this by checking if the index is not found and if the index is not found we can break the loop
 }
 
 
@@ -173,7 +213,7 @@ void	ft_sort_p2(t_stack **a, t_stack **b)
 				ra(a, 1);
 			}
 			else
-				rb_vs_rrb(b, 1,a);
+				rb_vs_rrb(b, (*a)->index - 1,a);
 		}
 		while ((*b) && (*b)->index == (*a)->index - 1)
 			pa(a, b, 1);
