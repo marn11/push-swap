@@ -12,9 +12,9 @@
 
 #include "../push_swap.h"
 
-t_stack *ft_lstlast(t_stack **lst)
+t_stack	*ft_lstlast(t_stack **lst)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!lst)
 		return (NULL);
@@ -39,7 +39,8 @@ void	ft_sort_p1(t_stack **a, t_stack **b)
 			pb(a, b, 1);
 		else
 			ra(a, 1);
-		if ((*b) && ft_lstsize(*b) > 1 && ((*b)->index >= lastp1 && (*b)->index <= p2))
+		if ((*b) && ft_lstsize(*b) > 1
+			&& ((*b)->index >= lastp1 && (*b)->index <= p2))
 			rb(b, 1);
 		if (ft_lstsize(*b) == p1)
 		{
@@ -51,9 +52,12 @@ void	ft_sort_p1(t_stack **a, t_stack **b)
 	ft_sort3(a);
 	ft_sort_p2(a, b);
 }
-void does_it_exist(t_stack **b, int index)
+//check if necessary function in other words check if it
+//still sorts with or without it
+
+void	does_it_exist(t_stack **b, int index)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *b;
 	while (tmp)
@@ -62,73 +66,8 @@ void does_it_exist(t_stack **b, int index)
 			return ;
 		tmp = tmp->next;
 	}
-	printf("index %d does not exist in stack b\n", index);
 	exit(1);
 }
-int	bottom_index(t_stack **a)
-{
-	t_stack *tmp;
-	int		last;
-
-	tmp = *a;
-	last = 0;
-	while (tmp)
-	{
-		last = tmp->index;
-		tmp = tmp->next;
-	}
-	return (last);
-}
-
-int	count_rotations_to_bottom(t_stack **b, int index)
-{
-	t_stack	*tmp;
-	int		rotations;
-
-	tmp = *b;
-	rotations = 0;
-	if (!tmp)
-		return (0);
-	while (tmp && tmp->index != index)
-	{
-		tmp = tmp->next;
-		rotations++;
-	}
-	return (rotations);
-}
-
-int	count_rotations_to_top(t_stack **b, int index)
-{
-	t_stack	*tmp;
-	int		rotations;
-
-	tmp = ft_lstlast(b);
-	rotations = 0;
-	if (!tmp)
-		return (0);
-	while (tmp && tmp->index != index)
-	{
-		tmp = tmp->prev;
-		rotations++;
-	}
-	return (rotations);
-}
-
-void rb_vs_rrb(t_stack **b, int index ,t_stack **a)
-{
-	int		fw_rotations;
-	int		bw_rotations;
-
-	(void)a;
-	does_it_exist(b, index);
-	fw_rotations = count_rotations_to_bottom(b, index);
-	bw_rotations = count_rotations_to_top(b, index);
-		if (fw_rotations <= bw_rotations)	
-			rb(b, 1);
-		else
-			rrb(b, 1);
-}
-
 
 void	ft_sort_p2(t_stack **a, t_stack **b)
 {
@@ -139,13 +78,14 @@ void	ft_sort_p2(t_stack **a, t_stack **b)
 	{
 		while ((*b) && (*b)->index != (*a)->index - 1)
 		{
-			if (bottom_index(a) == biggest_index || bottom_index(a) < (*b)->index)
+			if (bottom_index(a) == biggest_index
+				|| bottom_index(a) < (*b)->index)
 			{
 				pa(a, b, 1);
 				ra(a, 1);
 			}
 			else
-				rb_vs_rrb(b, (*a)->index - 1,a);
+				rb_vs_rrb(b, (*a)->index - 1, a);
 		}
 		while ((*b) && (*b)->index == (*a)->index - 1)
 			pa(a, b, 1);

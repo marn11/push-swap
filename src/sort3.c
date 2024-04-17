@@ -12,7 +12,6 @@
 
 #include "../push_swap.h"
 
-
 int	ft_sort3(t_stack **a)
 {
 	int		x;
@@ -21,21 +20,21 @@ int	ft_sort3(t_stack **a)
 	x = (*a)->next->data;
 	y = (*a)->next->next->data;
 	if ((*a)->data > x && x > y)
-		return (ra(a,1), sa(a,1), 1);
+		return (ra(a, 1), sa(a, 1), 1);
 	else if ((*a)->data < x && (*a)->data < y && x < y)
-		return (sa(a,1), sa(a,1), 1);
+		return (sa(a, 1), sa(a, 1), 1);
 	else if ((*a)->data > x && (*a)->data < y)
-		return (sa(a,1), 1);
+		return (sa(a, 1), 1);
 	else if ((*a)->data > x && x < y)
-		return (ra(a,1), 1);
+		return (ra(a, 1), 1);
 	else if ((*a)->data < x && (*a)->data > y)
-		return (rra(a,1), 1);
+		return (rra(a, 1), 1);
 	else if ((*a)->data < x && (*a)->data < y)
-		return(rra(a,1), sa(a,1), 1);
+		return (rra(a, 1), sa(a, 1), 1);
 	return (0);
 }
 
-void ft_sort2(t_stack **a)
+void	ft_sort2(t_stack **a)
 {
 	t_stack	*tmp;
 
@@ -44,7 +43,7 @@ void ft_sort2(t_stack **a)
 		sa(a, 1);
 }
 
-void ft_sort5(t_stack **a, t_stack **b)
+void	ft_sort5(t_stack **a, t_stack **b)
 {
 	int	i;
 

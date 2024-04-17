@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-int check_repeated(t_stack *a , int nbr)
+int	check_repeated(t_stack *a, int nbr)
 {
 	if (!a)
 		return (0);
@@ -41,7 +41,7 @@ int	check_error(char *s)
 		if (s[i] && s[i] != ' ')
 			return (write(2, "Error\n", 6), 1);
 	}
-	return(0);
+	return (0);
 }
 
 t_stack	*last_node(t_stack *head)
@@ -112,24 +112,15 @@ void	init_stack(t_stack **a, char **av, int ac)
 	i = 0;
 	while (res[i])
 	{
-		data[i]= ft_atol(res[i]);
-	if (data[i] > INT_MAX || data[i] < INT_MIN)
-		exit(1);
-	if (check_repeated(*a, (int)data[i]))
-	{
-		write(2, "error\n", 6);
-		exit(1);
+		data[i] = ft_atol(res[i]);
+		if (data[i] > INT_MAX || data[i] < INT_MIN)
+			exit(1);
+		if (check_repeated(*a, (int)data[i]))
+		{
+			write(2, "error\n", 6);
+			exit(1);
+		}
+		add_node(a, (int)data[i]);
+		i++;
 	}
-	add_node(a, (int)data[i]);
-	i++;
-	}
-	// i = 0;
-	// free(data);
-	// free(join);
-	// i = 0;
-	// while (res[i])
-	// 	free(res[i++]);
-	// free(res);
-	// free(av);
 }
-

@@ -12,14 +12,13 @@
 
 #include "utils.h"
 
-static size_t counwords(const char *s, char c)
+static size_t	countwords(const char *s, char c)
 {
 	size_t	i;
 	size_t	count;
 
 	i = 0;
 	count = 0;
-
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
@@ -32,7 +31,7 @@ static size_t counwords(const char *s, char c)
 	return (count);
 }
 
-static char *getwords(int *i, const char *s, char c)
+static char	*getwords(int *i, const char *s, char c)
 {
 	int		tpos;
 	int		j;
@@ -56,7 +55,7 @@ static char *getwords(int *i, const char *s, char c)
 	return (word);
 }
 
-static char **ft_free(char **s)
+static char	**ft_free(char **s)
 {
 	int	i;
 
@@ -73,7 +72,7 @@ static char **ft_free(char **s)
 	return (NULL);
 }
 
-char **ft_split(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**tab;
 	int		i;
@@ -82,10 +81,9 @@ char **ft_split(const char *s, char c)
 
 	if (!s)
 		return (NULL);
-
 	i = 0;
 	j = 0;
-	wc = counwords(s, c);
+	wc = countwords(s, c);
 	tab = malloc(sizeof(char *) * (wc + 1));
 	if (!tab)
 		return (NULL);

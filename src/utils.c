@@ -22,8 +22,8 @@ void	rrr(t_stack **a, t_stack **b, int i)
 
 void	index_stack(t_stack **a)
 {
-	t_stack *tmp;
-	t_stack *tmp2;
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
 	tmp = *a;
 	while (tmp)

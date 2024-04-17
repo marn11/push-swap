@@ -13,6 +13,7 @@ SRCS =	src/main.c \
 		src/utils.c \
 		src/sort3.c \
 		src/sort.c \
+		src/sorthelper.c \
 		utils/utils.c \
 		utils/utils2.c \
 		utils/utils3.c \

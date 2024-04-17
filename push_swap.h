@@ -13,11 +13,10 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <limits.h>
-#include <stdio.h>// remove when done with it
-#include "utils/utils.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include "utils/utils.h"
 
 typedef struct s_stack
 {
@@ -50,5 +49,8 @@ void	ft_sort2(t_stack **a);
 void	ft_sort_p1(t_stack **a, t_stack **b);
 void	ft_sort_p2(t_stack **a, t_stack **b);
 int		bottom_index(t_stack **a);
+void	rb_vs_rrb(t_stack **b, int index, t_stack **a);
+t_stack	*ft_lstlast(t_stack **lst);
+void	does_it_exist(t_stack **b, int index);
 
 #endif

@@ -12,10 +12,10 @@
 
 #include "../push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
@@ -23,13 +23,7 @@ int main(int ac, char **av)
 			|| (av[1][0] >= 9 && av[1][0] <= 13))))
 		return (write(2, "Error\n", 6), exit(1), 1);
 	else if (ac == 2)
-	{
 		av = ft_split(av[1], ' ');
-		// int i = 0;
-		// while (av[i])
-		// 	free(av[i++]);
-		// free(av);
-	}
 	init_stack(&a, av, ac);
 	index_stack(&a);
 	if (ft_lstsize(a) == 3)
@@ -43,3 +37,4 @@ int main(int ac, char **av)
 	else if (ft_lstsize(a) > 5)
 		ft_sort_p1(&a, &b);
 }
+// double check all the files + fix leaks + norm 25 lines... + parsing

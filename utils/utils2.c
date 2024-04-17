@@ -39,7 +39,7 @@ long	ft_atol(const char *nptr)
 	return (result * sign);
 }
 
-int ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
 	int	i;
 
