@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:20:21 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/01 01:02:46 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 21:56:02 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ long	ft_atol(const char *nptr)
 	int		i;
 	int		sign;
 	long	result;
+	int		digc;
 
 	i = 0;
 	sign = 1;
 	result = 0;
+	digc = 0;
 	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
@@ -33,7 +35,13 @@ long	ft_atol(const char *nptr)
 		i++;
 	while (nptr[i] >= 48 && nptr[i] <= 57)
 	{
-		result = result * 10 + nptr[i] - 48;
+		digc++;
+		if (digc > 10)
+		{
+			write(2, "Error\n", 6);
+			exit(1);
+		}
+		result = result * 10 + nptr[i] - 48;   //skip zeros and count the length of the number
 		i++;
 	}
 	return (result * sign);

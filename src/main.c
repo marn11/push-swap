@@ -6,16 +6,11 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 20:10:47 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 21:56:19 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// void f()
-// {
-// 	system("leaks push_swap > leaks");
-// }
 
 int	main(int ac, char **av)
 {
@@ -24,7 +19,6 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	// atexit(f);
 	if (ac == 1)
 		return (0);
 	init_stack(&a, av, ac);
@@ -39,6 +33,10 @@ int	main(int ac, char **av)
 		ft_sort5(&a, &b);
 	else if (ft_lstsize(a) > 5)
 		ft_sort_p1(&a, &b);
+	free_list(&a);
 }
-// double check all the files and function comments... + fix leaks
-// handle case  "+1" "-3" and "+1 -3"
+// double check all the files and function comments...
+
+// norm check
+
+// utils2.c norm

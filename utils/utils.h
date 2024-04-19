@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:18:05 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/02 03:33:19 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:39:00 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int		ft_isdigit(int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
 int		ft_2dlen(char **s);
+void	ft_free(char **s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 18:06:55 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:51:37 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ char	*setup(char **av, int ac)
 {
 	int		i;
 	char	*join;
+	char	*tmp;
 
 	i = 1;
 	join = NULL;
@@ -99,11 +100,17 @@ char	*setup(char **av, int ac)
 	while (i < ac)
 	{
 		check_error(av[i]);
-		if (join)
-			join = ft_strjoin(join, " ");
-		else
+		if (!join)
 			join = ft_strdup("");
-		join = ft_strjoin(join, av[i]);
+		else
+		{
+			tmp = ft_strjoin(join, " ");
+			free(join);
+			join = tmp;
+		}
+		tmp = ft_strjoin(join, av[i]);
+		free(join);
+		join = tmp;
 		i++;
 	}
 	return (join);
@@ -127,7 +134,10 @@ void	init_stack(t_stack **a, char **av, int ac)
 	{
 		data[i] = ft_atol(res[i]);
 		if (data[i] > INT_MAX || data[i] < INT_MIN)
+		{
+			write(2, "Error\n", 6);
 			exit(1);
+		}
 		if (check_repeated(*a, (int)data[i]))
 		{
 			write(2, "error\n", 6);
@@ -136,4 +146,7 @@ void	init_stack(t_stack **a, char **av, int ac)
 		add_node(a, (int)data[i]);
 		i++;
 	}
+	free(join);
+	free(data);
+	ft_free(res);
 }
