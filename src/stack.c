@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/03 14:28:24 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/18 22:49:07 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,35 @@ int	check_repeated(t_stack *a, int nbr)
 	}
 	return (0);
 }
-
+int	check(int *i, char *s)
+{
+	if (!ft_isdigit(s[*i]))
+		return (0);
+	while (s[*i] && ft_isdigit(s[*i]))
+		(*i)++;
+	return (1);
+}
 int	check_error(char *s)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
+	if (!check(&i, s))
+		return (write(2, "Error\n", 6), exit(1), 1);
+	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
+		i++;
+	if (s[i] == '-' || s[i] == '+')
 	{
-		while (s[i] == ' ')
-			i++;
-		if (s[i] == '-' || s[i] == '+')
-			i++;
-		while (ft_isdigit(s[i]))
-			i++;
-		if (s[i] && s[i] != ' ')
-			return (write(2, "Error\n", 6), 1);
+		if (!ft_isdigit(s[i + 1]))
+			return (write(2, "Error\n", 6), exit(1), 1);
+		i++;
 	}
+	if (!check(&i, s))
+		return (0);
+	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
+		i++;
+	if (s[i])
+		return (write(2, "Error\n", 6), exit(1), 1);
 	return (0);
 }
 
