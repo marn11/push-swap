@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sorthelper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/08 17:31:29 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:08:49 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	count_rotations_to_top(t_stack **b, int index)
 	t_stack	*tmp;
 	int		rotations;
 
-	tmp = ft_lstlast(b);
+	tmp = last_node(*b);
 	rotations = 0;
 	if (!tmp)
 		return (0);

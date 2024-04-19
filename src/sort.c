@@ -6,23 +6,11 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/08 17:31:29 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:07:57 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-t_stack	*ft_lstlast(t_stack **lst)
-{
-	t_stack	*tmp;
-
-	if (!lst)
-		return (NULL);
-	tmp = *lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
-}
 
 void	ft_sort_p1(t_stack **a, t_stack **b)
 {

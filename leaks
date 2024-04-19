@@ -1,0 +1,50 @@
+Process:         push_swap [579]
+Path:            /Volumes/VOLUME/*/push_swap
+Load Address:    0x10cc4c000
+Identifier:      push_swap
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [99327]
+
+Date/Time:       2024-04-19 20:04:49.406 +0100
+Launch Time:     2024-04-19 20:04:48.840 +0100
+OS Version:      Mac OS X 10.15.7 (19H2026)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 12.4 (12D4e)
+
+Physical footprint:         288K
+Physical footprint (peak):  288K
+----
+
+leaks Report Version: 4.0
+Process 579: 177 nodes malloced for 8 KB
+Process 579: 22 leaks for 496 total leaked bytes.
+
+    22 (496 bytes) << TOTAL >>
+
+      5 (160 bytes) ROOT LEAK: 0x7ffe02405990 [32]
+         4 (128 bytes) 0x7ffe024059d0 [32]
+            3 (96 bytes) 0x7ffe024059f0 [32]
+               2 (64 bytes) 0x7ffe024059b0 [32]
+                  1 (32 bytes) 0x7ffe02405970 [32]
+
+      6 (128 bytes) ROOT LEAK: 0x7ffe024058c0 [48]
+         1 (16 bytes) 0x7ffe024058f0 [16]  length: 1  "5"
+         1 (16 bytes) 0x7ffe02405900 [16]  length: 1  "1"
+         1 (16 bytes) 0x7ffe02405910 [16]  length: 1  "4"
+         1 (16 bytes) 0x7ffe02405920 [16]  length: 1  "2"
+         1 (16 bytes) 0x7ffe02405930 [16]  length: 1  "3"
+
+      1 (48 bytes) ROOT LEAK: 0x7ffe02405940 [48]
+      1 (16 bytes) ROOT LEAK: 0x7ffe02405820 [16]
+      1 (16 bytes) ROOT LEAK: 0x7ffe02405830 [16]  length: 1  "5"
+      1 (16 bytes) ROOT LEAK: 0x7ffe02405840 [16]  length: 2  "5 "
+      1 (16 bytes) ROOT LEAK: 0x7ffe02405850 [16]  length: 3  "5 1"
+      1 (16 bytes) ROOT LEAK: 0x7ffe02405860 [16]  length: 4  "5 1 "
+      1 (16 bytes) ROOT LEAK: 0x7ffe02405870 [16]  length: 5  "5 1 4"
+      1 (16 bytes) ROOT LEAK: 0x7ffe02405880 [16]  length: 6  "5 1 4 "
+      1 (16 bytes) ROOT LEAK: 0x7ffe02405890 [16]  length: 7  "5 1 4 2"
+      1 (16 bytes) ROOT LEAK: 0x7ffe024058a0 [16]  length: 8  "5 1 4 2 "
+      1 (16 bytes) ROOT LEAK: 0x7ffe024058b0 [16]  length: 9  "5 1 4 2 3"
+

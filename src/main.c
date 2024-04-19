@@ -6,12 +6,17 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 17:33:50 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:06:09 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
+
+void f()
+{
+	system("leaks push_swap > leaks");
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -19,17 +24,10 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
+	atexit(f);s
 	if (ac == 1)
 		return (0);
-	// printf("---argv0 = %s\n", av[0]);
-	// printf("----argv1 = %s\n", av[1]);
-	// printf("----argv2 = %s\n", av[2]);
-	// printf("----argv3 = %s\n", av[3]);
 	init_stack(&a, av, ac);
-	// printf("---argv0 = %s\n", av[0]);
-	// printf("----argv1 = %s\n", av[1]);
-	// printf("----argv2 = %s\n", av[2]);
-	// printf("----argv3 = %s\n", av[3]);
 	index_stack(&a);
 	if (ft_lstsize(a) == 3)
 		ft_sort3(&a);
@@ -41,14 +39,7 @@ int	main(int ac, char **av)
 		ft_sort5(&a, &b);
 	else if (ft_lstsize(a) > 5)
 		ft_sort_p1(&a, &b);
-	// t_stack *tmp = a;
-	// while (tmp)
-	// {
-	// 	printf("in the stack %d\n", tmp->data);
-	// 	tmp = tmp->next;
-	// }
+	free
 }
-// double check all the files + fix leaks + norm 25 lines... + parsing
-
-
+// double check all the files and function comments... + fix leaks
 // handle case  "+1" "-3" and "+1 -3"

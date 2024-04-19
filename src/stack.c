@@ -6,12 +6,11 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 17:29:27 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:06:55 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 int	check_repeated(t_stack *a, int nbr)
 {
@@ -31,7 +30,7 @@ int	check_error(char *s)
 	int	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
 			i++;
@@ -41,7 +40,7 @@ int	check_error(char *s)
 			return (write(2, "Error\n", 6), exit(1), 1);
 		if (s[i] && !ft_isdigit(s[i]))
 			return (write(2, "Error\n", 6), exit(1), 1);
-		while(s[i] && ft_isdigit(s[i]))
+		while (s[i] && ft_isdigit(s[i]))
 			i++;
 		if (s[i] && (s[i] == '-' || s[i] == '+'))
 			return (write(2, "Error\n", 6), exit(1), 1);
@@ -85,22 +84,20 @@ void	add_node(t_stack **stack, int data)
 	}
 }
 
-void	init_stack(t_stack **a, char **av, int ac)
+char	*setup(char **av, int ac)
 {
 	int		i;
 	char	*join;
-	char	**res;
-	long	*data;
 
 	i = 1;
 	join = NULL;
+	if (ft_strlen(av[1]) == 0 && av[1][0] == '\0')
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	while (i < ac)
 	{
-		if (ft_strlen(av[1]) == 0 && av[1][0] == '\0')
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
 		check_error(av[i]);
 		if (join)
 			join = ft_strjoin(join, " ");
@@ -109,6 +106,18 @@ void	init_stack(t_stack **a, char **av, int ac)
 		join = ft_strjoin(join, av[i]);
 		i++;
 	}
+	return (join);
+}
+
+void	init_stack(t_stack **a, char **av, int ac)
+{
+	int		i;
+	char	*join;
+	char	**res;
+	long	*data;
+
+	i = 1;
+	join = setup(av, ac);
 	res = ft_split(join, ' ');
 	data = malloc(sizeof(long) * ft_2dlen(res));
 	if (!data)
