@@ -6,11 +6,12 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/18 22:49:07 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/19 17:29:27 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 int	check_repeated(t_stack *a, int nbr)
 {
@@ -24,35 +25,29 @@ int	check_repeated(t_stack *a, int nbr)
 	}
 	return (0);
 }
-int	check(int *i, char *s)
-{
-	if (!ft_isdigit(s[*i]))
-		return (0);
-	while (s[*i] && ft_isdigit(s[*i]))
-		(*i)++;
-	return (1);
-}
+
 int	check_error(char *s)
 {
 	int	i;
 
 	i = 0;
-	if (!check(&i, s))
-		return (write(2, "Error\n", 6), exit(1), 1);
-	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
-		i++;
-	if (s[i] == '-' || s[i] == '+')
+	while(s[i])
 	{
-		if (!ft_isdigit(s[i + 1]))
+		while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
+			i++;
+		if (s[i] && (s[i] == '-' || s[i] == '+'))
+			i++;
+		if (!s[i])
 			return (write(2, "Error\n", 6), exit(1), 1);
-		i++;
+		if (s[i] && !ft_isdigit(s[i]))
+			return (write(2, "Error\n", 6), exit(1), 1);
+		while(s[i] && ft_isdigit(s[i]))
+			i++;
+		if (s[i] && (s[i] == '-' || s[i] == '+'))
+			return (write(2, "Error\n", 6), exit(1), 1);
+		while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
+			i++;
 	}
-	if (!check(&i, s))
-		return (0);
-	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
-		i++;
-	if (s[i])
-		return (write(2, "Error\n", 6), exit(1), 1);
 	return (0);
 }
 
@@ -97,18 +92,15 @@ void	init_stack(t_stack **a, char **av, int ac)
 	char	**res;
 	long	*data;
 
-	if (!av[0])
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
-	if (ac == 2)
-		i = 0;
-	else
-		i = 1;
+	i = 1;
 	join = NULL;
-	while (av[i])
+	while (i < ac)
 	{
+		if (ft_strlen(av[1]) == 0 && av[1][0] == '\0')
+		{
+			write(2, "Error\n", 6);
+			exit(1);
+		}
 		check_error(av[i]);
 		if (join)
 			join = ft_strjoin(join, " ");
@@ -122,7 +114,7 @@ void	init_stack(t_stack **a, char **av, int ac)
 	if (!data)
 		exit(1);
 	i = 0;
-	while (res[i])
+	while (res && res[i])
 	{
 		data[i] = ft_atol(res[i]);
 		if (data[i] > INT_MAX || data[i] < INT_MIN)
