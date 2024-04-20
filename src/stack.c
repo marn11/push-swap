@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 22:28:48 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 20:51:37 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/21 00:19:32 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,6 @@ int	check_error(char *s)
 	return (0);
 }
 
-t_stack	*last_node(t_stack *head)
-{
-	if (!head)
-		return (NULL);
-	while (head->next)
-		head = head->next;
-	return (head);
-}
-
 void	add_node(t_stack **stack, int data)
 {
 	t_stack	*new;
@@ -93,10 +84,7 @@ char	*setup(char **av, int ac)
 	i = 1;
 	join = NULL;
 	if (ft_strlen(av[1]) == 0 && av[1][0] == '\0')
-	{
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		error();
 	while (i < ac)
 	{
 		check_error(av[i]);
@@ -134,15 +122,9 @@ void	init_stack(t_stack **a, char **av, int ac)
 	{
 		data[i] = ft_atol(res[i]);
 		if (data[i] > INT_MAX || data[i] < INT_MIN)
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
+			error();
 		if (check_repeated(*a, (int)data[i]))
-		{
-			write(2, "error\n", 6);
-			exit(1);
-		}
+			error();
 		add_node(a, (int)data[i]);
 		i++;
 	}

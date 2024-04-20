@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 15:07:03 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 20:38:54 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/21 00:19:55 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	ft_lstsize(t_stack *lst)
 	}
 	return (count);
 }
+
 void	free_list(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -66,4 +67,13 @@ void	free_list(t_stack **stack)
 		*stack = (*stack)->next;
 		free(tmp);
 	}
+}
+
+t_stack	*last_node(t_stack *head)
+{
+	if (!head)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
 }

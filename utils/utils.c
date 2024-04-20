@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:18:36 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/03/30 20:33:46 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/20 23:38:51 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	*getwords(int *i, const char *s, char c)
 	return (word);
 }
 
-static char	**ft_free(char **s)
+static char	**ft_freew(char **s)
 {
 	int	i;
 
@@ -92,7 +92,7 @@ char	**ft_split(const char *s, char c)
 		tab[j] = getwords(&i, s, c);
 		if (!tab[j])
 		{
-			return (ft_free(tab));
+			return (ft_freew(tab));
 		}
 		j++;
 	}

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:18:05 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 20:39:00 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/21 00:20:08 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
 int		ft_2dlen(char **s);
 void	ft_free(char **s);
+long	parse_nb(const char *nptr, int *i);
+void	error(void);
 
 #endif
