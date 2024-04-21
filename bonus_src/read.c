@@ -1,28 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/21 18:15:21 by mbenchel         ###   ########.fr       */
+/*   Created: 2024/04/21 17:44:40 by mbenchel          #+#    #+#             */
+/*   Updated: 2024/04/21 18:44:48 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-int main(int ac, char **av)
+t_stack	*last_node(t_stack *head)
 {
-	t_stack	*a;
-	t_stack	*b;
+	if (!head)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
+}
 
-	a = NULL;
-	b = NULL;
-	ft_read(0);
-	return (0);
-	if (ac == 1)
-		return (0);
-	init_stack(&a, av, ac);
+void ft_read(int fd)
+{
+	char	*line;
+	int		n;
 
+	line = malloc((size_t)BUFFER_SIZE + 1);
+	if (!line)
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+	n = read(fd, line, BUFFER_SIZE);
+	if (n == -1)
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+	while (n > 0)
+	{
+		write(1, line, n);
+		n = read(fd, line, BUFFER_SIZE);
+	}
 }

@@ -21,6 +21,10 @@ SRCS =	src/main.c \
 		utils/utils3.c \
 
 SRCS_BONUS =	bonus_src/main_bonus.c \
+				bonus_src/read.c \
+				bonus_src/stack_bonus.c \
+				bonus_utils/utils_bonus.c \
+				bonus_utils/utils2_bonus.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -30,7 +34,7 @@ all: $(NAME)
 
 bonus: $(NAME_BONUS)
 
-%_bonus.o : bonus_src/%.c bonus_utils/%.c bonus_src/%.h bonus_utils/%.h
+%_bonus.o : bonus_src/%.c bonus_utils/%.c bonus_src/push_swap_bonus.h bonus_utils/utils_bonus.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 %.o: %.c
@@ -42,7 +46,7 @@ $(NAME):	$(OBJS)
 $(NAME_BONUS):	$(OBJS_BONUS)
 				$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS)
 
-$(OBJS_BONUS): bonus_src/%.h bonus_utils/%.h
+$(OBJS_BONUS): bonus_src/push_swap_bonus.h bonus_utils/utils_bonus.h
 
 clean:
 	  $(RM) $(OBJS)

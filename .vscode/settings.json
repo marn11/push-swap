@@ -6,6 +6,7 @@
 		"string": "c",
 		"string_view": "c",
 		"vector": "c",
-		"random": "c"
+		"random": "c",
+		"push_swap_bonus.h": "c"
 	}
 }
