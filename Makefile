@@ -1,8 +1,10 @@
 NAME = push_swap
 
+NAME_BONUS = checker
+
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
@@ -18,15 +20,29 @@ SRCS =	src/main.c \
 		utils/utils2.c \
 		utils/utils3.c \
 
+SRCS_BONUS =	bonus_src/main_bonus.c \
+
 OBJS = $(SRCS:.c=.o)
 
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
 all: $(NAME)
+
+bonus: $(NAME_BONUS)
+
+%_bonus.o : bonus_src/%.c bonus_utils/%.c bonus_src/%.h bonus_utils/%.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+
+$(NAME_BONUS):	$(OBJS_BONUS)
+				$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS)
+
+$(OBJS_BONUS): bonus_src/%.h bonus_utils/%.h
 
 clean:
 	  $(RM) $(OBJS)
