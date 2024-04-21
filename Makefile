@@ -26,6 +26,7 @@ SRCS_BONUS =	bonus_src/main_bonus.c \
 				bonus_utils/utils_bonus.c \
 				bonus_utils/utils2_bonus.c \
 
+
 OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
@@ -49,10 +50,10 @@ $(NAME_BONUS):	$(OBJS_BONUS)
 $(OBJS_BONUS): bonus_src/push_swap_bonus.h bonus_utils/utils_bonus.h
 
 clean:
-	  $(RM) $(OBJS)
+	  $(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: 	clean
-			$(RM) $(NAME)
+			$(RM) $(NAME) $(NAME_BONUS)
 
 re: 		fclean all
 

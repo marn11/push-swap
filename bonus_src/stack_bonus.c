@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 18:31:45 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/21 18:31:54 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/21 23:36:56 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,3 +133,27 @@ void	init_stack(t_stack **a, char **av, int ac)
 	ft_free(res);
 }
 
+int	is_it_sorted(t_stack **a)
+{
+	t_stack	*tmp;
+
+	tmp = *a;
+	while (tmp->next)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	error();
+	return (1);
+}
+
+void add_inst(t_ins **ins, char *s)
+{
+	t_ins	*new;
+
+	new = malloc(sizeof(t_ins));
+	if (!new)
+		exit(1);
+	new->ins = ft_strdup(s);
+}

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:31:28 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/21 18:58:53 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/21 23:36:34 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	**ft_split(const char *s, char c);
 int		ft_2dlen(char **s);
 long	ft_atol(const char *nptr);
 void	ft_free(char **s);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

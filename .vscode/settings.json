@@ -7,6 +7,9 @@
 		"string_view": "c",
 		"vector": "c",
 		"random": "c",
-		"push_swap_bonus.h": "c"
+		"push_swap_bonus.h": "c",
+		"ostream": "c",
+		"limits.h": "c",
+		"utils_bonus.h": "c"
 	}
 }

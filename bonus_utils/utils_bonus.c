@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 18:34:09 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/21 18:47:22 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/21 23:36:25 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,16 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		c[i++] = s2[j++];
 	c[i] = '\0';
 	return (c);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t			i;
+
+	if (!s1 || !s2)
+		return (0);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
