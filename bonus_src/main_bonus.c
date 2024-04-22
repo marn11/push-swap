@@ -6,12 +6,11 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/22 18:00:12 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:35:47 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
-
 
 int	main(int ac, char **av)
 {
@@ -23,7 +22,6 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	i = 0;
-
 	if (ac == 1)
 		return (0);
 	init_stack(&a, av, ac);
@@ -43,3 +41,4 @@ int	main(int ac, char **av)
 	return (0);
 }
 // error management KO blast error
+// leaks ft_read check

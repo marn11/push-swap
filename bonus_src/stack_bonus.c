@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 18:31:45 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/22 16:55:52 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:35:07 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,35 +131,4 @@ void	init_stack(t_stack **a, char **av, int ac)
 	free(join);
 	free(data);
 	ft_free(res);
-}
-
-int	is_it_sorted(t_stack **a)
-{
-	t_stack	*tmp;
-
-	tmp = *a;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	error();
-	return (1);
-}
-
-int	is_it_sorted1(t_stack **a)
-{
-	t_stack	*tmp;
-
-	if (!*a)
-		return (0);
-	tmp = *a;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
 }

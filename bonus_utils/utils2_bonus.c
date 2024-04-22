@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 18:48:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/21 18:59:23 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:34:09 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,75 +98,4 @@ char	**ft_split(const char *s, char c)
 	}
 	tab[j] = NULL;
 	return (tab);
-}
-
-int	ft_2dlen(char **s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	ft_free(char **s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-	{
-		free(s[i]);
-		i++;
-	}
-	free(s);
-}
-
-long	parse_nb(const char *nptr, int *i)
-{
-	long	res;
-	int		digc;
-
-	res = 0;
-	digc = 0;
-	while (nptr[*i] >= '0' && nptr[*i] <= '9')
-	{
-		digc++;
-		if (digc > 10)
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-		}
-		res = res * 10 + nptr[*i] - '0';
-		(*i)++;
-	}
-	return (res);
-}
-
-long	ft_atol(const char *nptr)
-{
-	int		i;
-	int		sign;
-	long	result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (nptr[i] == 48)
-		i++;
-	result = parse_nb(nptr, &i);
-	return (result * sign);
 }
