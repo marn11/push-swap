@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 18:31:45 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/21 23:36:56 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:55:52 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,12 +148,18 @@ int	is_it_sorted(t_stack **a)
 	return (1);
 }
 
-void add_inst(t_ins **ins, char *s)
+int	is_it_sorted1(t_stack **a)
 {
-	t_ins	*new;
+	t_stack	*tmp;
 
-	new = malloc(sizeof(t_ins));
-	if (!new)
-		exit(1);
-	new->ins = ft_strdup(s);
+	if (!*a)
+		return (0);
+	tmp = *a;
+	while (tmp->next)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

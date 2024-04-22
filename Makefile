@@ -4,7 +4,7 @@ NAME_BONUS = checker
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -rf
 
@@ -23,6 +23,7 @@ SRCS =	src/main.c \
 SRCS_BONUS =	bonus_src/main_bonus.c \
 				bonus_src/read.c \
 				bonus_src/stack_bonus.c \
+				bonus_src/moves_bonus.c \
 				bonus_utils/utils_bonus.c \
 				bonus_utils/utils2_bonus.c \
 
