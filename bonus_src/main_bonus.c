@@ -6,11 +6,17 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/22 18:35:47 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/23 20:29:36 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+#include <stdio.h>
+
+void	f(void)
+{
+	system("leaks checker > leaks");
+}
 
 int	main(int ac, char **av)
 {
@@ -24,15 +30,14 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac == 1)
 		return (0);
+	atexit(f);
 	init_stack(&a, av, ac);
 	is_it_sorted(&a);
 	ins = ft_read(0);
-	while (ins[i])
-	{
+	while (ins && ins[i])
 		if (check_inst(ins[i]))
 			exec_inst(ins[i], &a, &b);
-		i++;
-	}
+	i++;
 	if (is_it_sorted1(&a) && !b)
 		write(1, "OK\n", 3);
 	else
