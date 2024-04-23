@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:18 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/23 21:27:34 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 00:51:34 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-# define BUFFER_SIZE 1
 
 char	**ft_read(int fd);
 void	init_stack(t_stack **a, char **av, int ac);
@@ -47,7 +46,7 @@ void	exec_inst(char *str, t_stack **a, t_stack **b);
 void	ft_putstr_fd(char *s, int fd);
 int		is_it_sorted1(t_stack **a);
 void	free_list(t_stack **stack);
-void	ft_free_all(t_stack **a, char **ins);
+void	ft_free_all(t_stack **a, char *ins);
 void	error(void);
 
 #endif

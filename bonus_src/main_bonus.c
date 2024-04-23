@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 00:26:20 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 00:52:00 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	char	**ins;
+	char	*ins;
 	int		i;
 
 	a = NULL;
@@ -32,11 +32,18 @@ int	main(int ac, char **av)
 		return (0);
 	atexit(f);
 	init_stack(&a, av, ac);
-	ins = ft_read(0);
+	ins = get_next_line(0);
 	while (ins && ins[i])
-		if (check_inst(ins[i]))
-			exec_inst(ins[i], &a, &b);
-	i++;
+	{
+		if (check_inst(ins))
+			exec_inst(ins, &a, &b);
+		i++;
+	}
+	// ins = ft_read(0);
+	// while (ins && ins[i])
+	// 	if (check_inst(ins[i]))
+	// 		exec_inst(ins[i], &a, &b);
+	// i++;
 	if (is_it_sorted1(&a) && !b)
 		write(1, "OK\n", 3);
 	else
@@ -46,3 +53,4 @@ int	main(int ac, char **av)
 }
 // error management KO blast error
 // leaks ft_read check
+// pipex makefile check

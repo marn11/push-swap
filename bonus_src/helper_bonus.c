@@ -6,16 +6,16 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:35:49 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/23 21:24:20 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 00:52:21 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	ft_free_all(t_stack **a, char **ins)
+void	ft_free_all(t_stack **a, char *ins)
 {
 	free_list(a);
-	ft_free(ins);
+	ft_free(&ins);
 }
 
 int	is_it_sorted1(t_stack **a)
