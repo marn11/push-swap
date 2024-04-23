@@ -6,11 +6,30 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 18:48:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/22 18:34:09 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 00:42:00 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils_bonus.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*c;
+	size_t	slen;
+
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (s == NULL || start >= slen)
+		return (ft_strdup(""));
+	if (start + len > slen)
+		len = slen - start;
+	c = (char *)malloc((len + 1) * sizeof(char));
+	if (c == NULL)
+		return (NULL);
+	ft_strlcpy(c, &s[start], len + 1);
+	return (c);
+}
 
 static size_t	countwords(const char *s, char c)
 {

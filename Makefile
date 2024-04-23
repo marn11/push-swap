@@ -21,7 +21,7 @@ SRCS =	src/main.c \
 		utils/utils3.c \
 
 SRCS_BONUS =	bonus_src/main_bonus.c \
-				bonus_src/read.c \
+				bonus_src/read_bonus.c \
 				bonus_src/stack_bonus.c \
 				bonus_src/moves_bonus.c \
 				bonus_src/moves2_bonus.c \
@@ -30,6 +30,8 @@ SRCS_BONUS =	bonus_src/main_bonus.c \
 				bonus_utils/utils_bonus.c \
 				bonus_utils/utils2_bonus.c \
 				bonus_utils/utils3_bonus.c \
+				bonus_utils/utils4_bonus.c \
+				bonus_utils/gnl_bonus.c \
 
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 09:18:26 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/21 00:50:31 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/23 21:13:19 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,4 @@ void	ft_sort5(t_stack **a, t_stack **b)
 	ft_sort3(a);
 	pa(a, b, 1);
 	pa(a, b, 1);
-}
-
-int	is_it_sorted(t_stack **a)
-{
-	t_stack	*tmp;
-
-	tmp = *a;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	error();
-	return (1);
 }
