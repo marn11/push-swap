@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 00:29:11 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 23:03:33 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 23:48:36 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*ft_freee(char **block, int len, int null)
 		*block = NULL;
 	return (l);
 }
-
+#include <stdio.h>
 char	*get_next_line(int fd)
 {
 	static char	*block;
@@ -99,6 +99,7 @@ char	*get_next_line(int fd)
 		else
 		{
 			block = ft_readd(block_before, fd, &n);
+			printf("block2 = %s\n", block);
 			free(block_before);
 			if (n == 0)
 				return (ft_freee(&block, 0, 1));

@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 23:05:23 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 23:49:25 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@ void	f(void)
 {
 	system("leaks checker > leaks");
 }
+#include <readline/readline.h>
 
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
 	char	*ins;
-	int		i;
 	int		n;
 
 	a = NULL;
 	b = NULL;
-	i = 0;
 	n = 1;
 	if (ac == 1)
 		return (0);
@@ -37,7 +36,7 @@ int	main(int ac, char **av)
 	while (n)
 	{
 		ins = get_next_line(0);
-		printf("ins = %s\n", ins);
+		fprintf(stderr, "ins = %s", ins);
 		if (!ins)
 			n = 0;
 		else
