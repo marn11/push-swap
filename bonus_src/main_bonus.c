@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/23 20:29:36 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:44:28 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(int ac, char **av)
 		return (0);
 	atexit(f);
 	init_stack(&a, av, ac);
-	is_it_sorted(&a);
 	ins = ft_read(0);
 	while (ins && ins[i])
 		if (check_inst(ins[i]))

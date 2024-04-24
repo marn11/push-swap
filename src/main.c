@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/22 17:29:26 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:49:03 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	init_stack(&a, av, ac);
-	is_it_sorted(&a);
 	index_stack(&a);
 	if (ft_lstsize(a) == 3)
 		ft_sort3(&a);

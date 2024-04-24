@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:35:49 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/22 18:43:10 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:44:24 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,6 @@ void	ft_free_all(t_stack **a, char **ins)
 {
 	free_list(a);
 	ft_free(ins);
-}
-
-int	is_it_sorted(t_stack **a)
-{
-	t_stack	*tmp;
-
-	tmp = *a;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	error();
-	return (1);
 }
 
 int	is_it_sorted1(t_stack **a)
