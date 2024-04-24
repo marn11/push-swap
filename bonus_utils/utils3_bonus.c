@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:33:36 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/22 18:34:12 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:41:29 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,4 @@ int	ft_2dlen(char **s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-void	ft_free(char **s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-	{
-		free(s[i]);
-		i++;
-	}
-	free(s);
 }

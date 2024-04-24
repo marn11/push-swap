@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 00:52:00 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 23:05:23 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,33 @@ int	main(int ac, char **av)
 	t_stack	*b;
 	char	*ins;
 	int		i;
+	int		n;
 
 	a = NULL;
 	b = NULL;
 	i = 0;
+	n = 1;
 	if (ac == 1)
 		return (0);
-	atexit(f);
+	// atexit(f);
 	init_stack(&a, av, ac);
-	ins = get_next_line(0);
-	while (ins && ins[i])
+	while (n)
 	{
-		if (check_inst(ins))
+		ins = get_next_line(0);
+		printf("ins = %s\n", ins);
+		if (!ins)
+			n = 0;
+		else
+		{
+			if (!check_inst(ins))
+			{
+				free(ins);
+				error();
+			}
 			exec_inst(ins, &a, &b);
-		i++;
+			free(ins);
+		}
 	}
-	// ins = ft_read(0);
-	// while (ins && ins[i])
-	// 	if (check_inst(ins[i]))
-	// 		exec_inst(ins[i], &a, &b);
-	// i++;
 	if (is_it_sorted1(&a) && !b)
 		write(1, "OK\n", 3);
 	else
@@ -53,4 +60,5 @@ int	main(int ac, char **av)
 }
 // error management KO blast error
 // leaks ft_read check
-// pipex makefile check
+//makefile check relink
+// ila  drt ctrl d lmra lwla ga3 katl3 ok 3ndhom b nbr wahd

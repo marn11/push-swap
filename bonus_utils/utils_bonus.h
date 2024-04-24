@@ -6,14 +6,14 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:31:28 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 00:53:16 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 21:12:17 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_BONUS_H
 # define UTILS_BONUS_H
 
-#include "get_next_line2.h"
+# include "get_next_line2.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>

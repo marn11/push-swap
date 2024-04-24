@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 02:37:20 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/23 21:24:34 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:46:28 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int		bottom_index(t_stack **a);
 void	rb_vs_rrb(t_stack **b, int index, t_stack **a);
 void	does_it_exist(t_stack **b, int index);
 void	free_list(t_stack **stack);
+int		is_it_sorted1(t_stack **a);
 
 #endif

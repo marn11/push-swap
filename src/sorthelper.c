@@ -6,11 +6,28 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 18:08:49 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:47:31 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	is_it_sorted1(t_stack **a)
+{
+	t_stack	*tmp;
+
+	if (!*a)
+		return (0);
+	tmp = *a;
+	while (tmp->next)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	exit(0);
+	return (1);
+}
 
 int	bottom_index(t_stack **a)
 {

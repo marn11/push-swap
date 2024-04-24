@@ -10,6 +10,8 @@
 		"push_swap_bonus.h": "c",
 		"ostream": "c",
 		"limits.h": "c",
-		"utils_bonus.h": "c"
-	}
+		"utils_bonus.h": "c",
+		"algorithm": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
