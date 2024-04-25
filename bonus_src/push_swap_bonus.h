@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:18 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 21:12:21 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/25 11:25:21 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	exec_inst(char *str, t_stack **a, t_stack **b);
 void	ft_putstr_fd(char *s, int fd);
 int		is_it_sorted1(t_stack **a);
 void	free_list(t_stack **stack);
-void	ft_free_all(t_stack **a, char *ins);
 void	error(void);
 
 #endif

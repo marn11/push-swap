@@ -6,12 +6,12 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/25 11:08:24 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/25 11:32:53 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
-
+#include <stdio.h>
 void f()
 {
 	system("leaks checker");
@@ -38,18 +38,17 @@ void	get_inst(t_stack *a, t_stack *b)
 			free(ins);
 		}
 	}
+	free_list(&a);
 }
 
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		n;
 
 	a = NULL;
 	b = NULL;
 	atexit(f);
-	n = 1;
 	if (ac == 1)
 		return (0);
 	init_stack(&a, av, ac);
@@ -58,8 +57,8 @@ int	main(int ac, char **av)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	ft_free_all(&a, NULL);
 	return (0);
 }
 
 //makefile check relink
+// fix leak
