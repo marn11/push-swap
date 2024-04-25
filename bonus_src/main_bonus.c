@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 23:49:25 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/25 10:11:13 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	f(void)
 {
 	system("leaks checker > leaks");
 }
-#include <readline/readline.h>
 
 int	main(int ac, char **av)
 {
