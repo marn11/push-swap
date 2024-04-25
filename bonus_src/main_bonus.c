@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/25 11:32:53 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:34:02 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,21 @@ void f()
 {
 	system("leaks checker");
 }
-void	get_inst(t_stack *a, t_stack *b)
+
+void lastcheck(t_stack *a, t_stack *b)
+{
+	if (is_it_sorted1(&a) && !b)
+		write(1, "OK\n", 3);
+	else
+	{
+		write(1, "KO\n", 3);
+		if(b)
+			free_list(&b);
+	}
+	if(a)
+		free_list(&a);
+}
+int	get_inst(t_stack *a, t_stack *b)
 {
 	char	*ins;
 	int		n;
@@ -33,18 +47,20 @@ void	get_inst(t_stack *a, t_stack *b)
 			{
 				free(ins);
 				error();
+				return (0);
 			}
 			exec_inst(ins, &a, &b);
 			free(ins);
 		}
 	}
-	free_list(&a);
+	lastcheck(a, b);
+	return (1);
 }
 
 int	main(int ac, char **av)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	a;
+	t_stack	b;
 
 	a = NULL;
 	b = NULL;
@@ -52,12 +68,7 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	init_stack(&a, av, ac);
-	get_inst(a, b);
-	if (is_it_sorted1(&a) && !b)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
-	return (0);
+	get_inst(&a, &b);
 }
 
 //makefile check relink
