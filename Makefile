@@ -4,7 +4,7 @@ NAME_BONUS = checker
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -rf
 
@@ -42,10 +42,10 @@ all: $(NAME)
 
 bonus: $(NAME_BONUS)
 
-%_bonus.o : bonus_src/%.c bonus_utils/%.c bonus_src/push_swap_bonus.h bonus_utils/utils_bonus.h
+%_bonus.o : bonus_src/%.c bonus_utils/%.c bonus_src/push_swap_bonus.h bonus_utils/utils_bonus.h bonus_utils/get_next_line2.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-%.o: %.c
+%.o: %.c push_swap.h utils/utils.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	$(OBJS)
@@ -54,7 +54,7 @@ $(NAME):	$(OBJS)
 $(NAME_BONUS):	$(OBJS_BONUS)
 				$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS)
 
-$(OBJS_BONUS): bonus_src/push_swap_bonus.h bonus_utils/utils_bonus.h
+$(OBJS_BONUS): bonus_src/push_swap_bonus.h bonus_utils/utils_bonus.h bonus_utils/get_next_line2.h
 
 clean:
 	  $(RM) $(OBJS) $(OBJS_BONUS)

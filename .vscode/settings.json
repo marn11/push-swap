@@ -11,7 +11,8 @@
 		"ostream": "c",
 		"limits.h": "c",
 		"utils_bonus.h": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"iterator": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

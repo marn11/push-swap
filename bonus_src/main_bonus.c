@@ -6,31 +6,27 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/25 15:34:02 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:50:43 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
-#include <stdio.h>
-void f()
-{
-	system("leaks checker");
-}
 
-void lastcheck(t_stack *a, t_stack *b)
+void	lastcheck(t_stack *a, t_stack *b)
 {
 	if (is_it_sorted1(&a) && !b)
 		write(1, "OK\n", 3);
 	else
 	{
 		write(1, "KO\n", 3);
-		if(b)
+		if (b)
 			free_list(&b);
 	}
-	if(a)
+	if (a)
 		free_list(&a);
 }
-int	get_inst(t_stack *a, t_stack *b)
+
+int	get_inst(t_stack **a, t_stack **b)
 {
 	char	*ins;
 	int		n;
@@ -49,26 +45,25 @@ int	get_inst(t_stack *a, t_stack *b)
 				error();
 				return (0);
 			}
-			exec_inst(ins, &a, &b);
+			exec_inst(ins, a, b);
 			free(ins);
 		}
 	}
-	lastcheck(a, b);
 	return (1);
 }
 
 int	main(int ac, char **av)
 {
-	t_stack	a;
-	t_stack	b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
-	atexit(f);
 	if (ac == 1)
 		return (0);
 	init_stack(&a, av, ac);
 	get_inst(&a, &b);
+	lastcheck(a, b);
 }
 
 //makefile check relink
