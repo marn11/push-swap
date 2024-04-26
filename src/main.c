@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:50:04 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 22:08:12 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:53:36 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,3 @@ int	main(int ac, char **av)
 	free_list(&a);
 	return (0);
 }
-// double check all the files and function comments...
-
-// b9a gha dok lcomments w checker hhhhh

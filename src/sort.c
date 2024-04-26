@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/19 18:07:57 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:51:42 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,6 @@ void	ft_sort_p1(t_stack **a, t_stack **b)
 	ft_sort3(a);
 	ft_sort_p2(a, b);
 }
-//check if necessary function in other words check if it
-//still sorts with or without it
-
-void	does_it_exist(t_stack **b, int index)
-{
-	t_stack	*tmp;
-
-	tmp = *b;
-	while (tmp)
-	{
-		if (tmp->index == index)
-			return ;
-		tmp = tmp->next;
-	}
-	exit(1);
-}
 
 void	ft_sort_p2(t_stack **a, t_stack **b)
 {
@@ -73,7 +57,7 @@ void	ft_sort_p2(t_stack **a, t_stack **b)
 				ra(a, 1);
 			}
 			else
-				rb_vs_rrb(b, (*a)->index - 1, a);
+				rb_vs_rrb(b, (*a)->index - 1);
 		}
 		while ((*b) && (*b)->index == (*a)->index - 1)
 			pa(a, b, 1);

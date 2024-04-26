@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:53:15 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 20:47:31 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:51:54 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,11 @@ int	count_rotations_to_top(t_stack **b, int index)
 	return (rotations);
 }
 
-//void a tat7ydha
-void	rb_vs_rrb(t_stack **b, int index, t_stack **a)
+void	rb_vs_rrb(t_stack **b, int index)
 {
 	int		fw_rotations;
 	int		bw_rotations;
 
-	(void)a;
-	does_it_exist(b, index);
 	fw_rotations = count_rotations_to_bottom(b, index);
 	bw_rotations = count_rotations_to_top(b, index);
 	if (fw_rotations <= bw_rotations)

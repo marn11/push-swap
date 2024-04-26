@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 17:44:40 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/24 21:29:28 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:55:04 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ void	exec_inst(char *s, t_stack **a, t_stack **b)
 	else
 		error();
 }
-//gnl daorri

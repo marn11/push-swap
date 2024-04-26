@@ -6,7 +6,7 @@
 /*   By: mbenchel <mbenchel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 16:30:02 by mbenchel          #+#    #+#             */
-/*   Updated: 2024/04/25 15:50:43 by mbenchel         ###   ########.fr       */
+/*   Updated: 2024/04/25 18:40:10 by mbenchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,3 @@ int	main(int ac, char **av)
 	get_inst(&a, &b);
 	lastcheck(a, b);
 }
-
-//makefile check relink
-// fix leak
